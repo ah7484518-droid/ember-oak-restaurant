@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Admin Dashboard | Ember &amp; Oak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/admin.css" />
+</head>
+
+<body>
+  <header class="navbar scrolled">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-dot"></span>
+        Ember &amp; Oak
+      </a>
+
+      <a href="/" class="btn btn-ghost btn-sm">
+        Back to website
+      </a>
+    </div>
+  </header>
+
+  <main class="admin-page">
+    <div class="container admin-container">
+      <section class="admin-heading">
+        <div>
+          <span class="eyebrow">Management area</span>
+          <h1>Restaurant dashboard</h1>
+          <p class="muted" id="adminWelcome">
+            Loading dashboard...
+          </p>
+        </div>
+
+        <button id="adminLogout" class="btn btn-ghost" type="button">
+          Log out
+        </button>
+      </section>
+
+      <div id="adminError" class="admin-error" hidden></div>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-icon">💰</span>
+          <span class="stat-label">Total sales</span>
+          <strong id="totalSales">$0.00</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon">🧾</span>
+          <span class="stat-label">Total orders</span>
+          <strong id="totalOrders">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon">📅</span>
+          <span class="stat-label">Reservations</span>
+          <strong id="totalReservations">0</strong>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon">👥</span>
+          <span class="stat-label">Registered users</span>
+          <strong id="totalUsers">0</strong>
+        </article>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="dashboard-card chart-card">
+          <div class="dashboard-card-heading">
+            <div>
+              <span class="eyebrow">Performance</span>
+              <h2>Sales overview</h2>
+            </div>
+          </div>
+
+          <div class="chart" id="salesChart">
+            <p class="muted">Loading chart...</p>
+          </div>
+        </article>
+
+        <article class="dashboard-card">
+          <div class="dashboard-card-heading">
+            <div>
+              <span class="eyebrow">Latest</span>
+              <h2>Recent orders</h2>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Total</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+
+              <tbody id="ordersTableBody">
+                <tr>
+                  <td colspan="3">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="dashboard-card">
+        <div class="dashboard-card-heading">
+          <div>
+            <span class="eyebrow">Bookings</span>
+            <h2>Recent reservations</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Guest</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Guests</th>
+                <th>Table</th>
+              </tr>
+            </thead>
+
+            <tbody id="reservationsTableBody">
+              <tr>
+                <td colspan="5">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="/static/js/admin.js"></script>
+</body>
+</html>

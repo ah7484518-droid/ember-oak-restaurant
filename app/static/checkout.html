@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Checkout | Ember &amp; Oak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/checkout.css" />
+</head>
+
+<body>
+  <header class="navbar scrolled">
+    <div class="container nav-inner">
+      <a href="/menu" class="logo">
+        <span class="logo-dot"></span>
+        Ember &amp; Oak
+      </a>
+
+      <a href="/menu" class="btn btn-ghost btn-sm">
+        ← Back to menu
+      </a>
+    </div>
+  </header>
+
+  <main class="checkout-page">
+    <div class="container checkout-container">
+      <div class="checkout-heading">
+        <span class="eyebrow">Almost there</span>
+
+        <h1>Complete your order</h1>
+
+        <p class="muted">
+          Review your dishes and place your demo order.
+        </p>
+      </div>
+
+      <div class="checkout-layout">
+        <section class="checkout-card">
+          <div class="checkout-card-heading">
+            <div>
+              <span class="eyebrow">Your order</span>
+              <h2>Order summary</h2>
+            </div>
+
+            <a href="/menu" class="text-link">
+              Edit order
+            </a>
+          </div>
+
+          <div id="checkoutItems" class="checkout-items">
+            <p class="muted">Loading your order...</p>
+          </div>
+
+          <div class="checkout-total">
+            <span>Total</span>
+            <strong id="checkoutTotal">$0.00</strong>
+          </div>
+        </section>
+
+        <section class="checkout-card">
+          <div class="checkout-card-heading">
+            <div>
+              <span class="eyebrow">Demo payment</span>
+              <h2>Payment details</h2>
+            </div>
+          </div>
+
+          <div id="loginNotice" class="login-notice" hidden>
+            <p>
+              Please log in before placing your order.
+            </p>
+
+            <a href="/#login" class="btn btn-primary">
+              Log in
+            </a>
+          </div>
+
+          <form id="checkoutForm">
+            <div class="form-field">
+              <label for="cardName">Name on card</label>
+
+              <input
+                id="cardName"
+                type="text"
+                placeholder="Test User"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="cardNumber">Card number</label>
+
+              <input
+                id="cardNumber"
+                type="text"
+                inputmode="numeric"
+                placeholder="4242 4242 4242 4242"
+                maxlength="19"
+                required
+              />
+
+              <small class="field-hint">
+                Demo only — no real payment is processed.
+              </small>
+            </div>
+
+            <div class="payment-row">
+              <div class="form-field">
+                <label for="expiry">Expiry</label>
+
+                <input
+                  id="expiry"
+                  type="text"
+                  placeholder="12/30"
+                  maxlength="5"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="cvv">CVV</label>
+
+                <input
+                  id="cvv"
+                  type="text"
+                  inputmode="numeric"
+                  placeholder="123"
+                  maxlength="3"
+                  required
+                />
+              </div>
+            </div>
+
+            <p id="checkoutError" class="form-error"></p>
+
+            <button
+              id="placeOrderButton"
+              class="btn btn-primary place-order-button"
+              type="submit"
+            >
+              Place demo order
+            </button>
+          </form>
+
+          <div id="successMessage" class="success-message" hidden>
+            <div class="success-icon">✓</div>
+
+            <h2>Order received!</h2>
+
+            <p class="muted">
+              Your demo order has been saved successfully.
+            </p>
+
+            <p>
+              Order number:
+              <strong id="orderNumber"></strong>
+            </p>
+
+            <a href="/menu" class="btn btn-primary">
+              Order something else
+            </a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="/static/js/checkout.js"></script>
+</body>
+</html>

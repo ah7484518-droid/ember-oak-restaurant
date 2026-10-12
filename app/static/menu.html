@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Menu | Ember &amp; Oak</title>
+
+  <meta
+    name="description"
+    content="Explore the Ember & Oak seasonal wood-fired menu."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <link rel="stylesheet" href="/static/css/menu.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-dot"></span>
+        Ember &amp; Oak
+      </a>
+
+      <button
+        class="burger"
+        id="burger"
+        type="button"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#why">Why us</a></li>
+        <li><a href="/menu" class="active-link">Menu</a></li>
+        <li><a href="/#reserve">Reserve</a></li>
+        <li><a href="#" id="loginLink">Log in</a></li>
+        <li>
+          <a href="#" class="btn btn-primary btn-sm" id="signupLink">
+            Sign up
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Menu Header -->
+    <section class="menu-hero">
+      <div class="container">
+        <div class="menu-hero-content">
+          <span class="eyebrow">From our kitchen</span>
+
+          <h1>Seasonal dishes.  
+Real fire.</h1>
+
+          <p>
+            Explore our wood-fired menu, prepared with fresh ingredients
+            and served with a little Ember &amp; Oak character.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Controls -->
+    <section class="menu-section">
+      <div class="container">
+        <div class="menu-toolbar">
+          <div class="search-box">
+            <label for="menuSearch" class="sr-only">
+              Search the menu
+            </label>
+
+            <span class="search-icon">⌕</span>
+
+            <input
+              id="menuSearch"
+              type="search"
+              placeholder="Search dishes..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="category-filters" id="categoryFilters">
+            <button
+              class="filter-btn active"
+              type="button"
+              data-category="All"
+            >
+              All
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-category="Starters"
+            >
+              Starters
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-category="Mains"
+            >
+              Mains
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-category="Pizza"
+            >
+              Pizza
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-category="Desserts"
+            >
+              Desserts
+            </button>
+
+            <button
+              class="filter-btn"
+              type="button"
+              data-category="Drinks"
+            >
+              Drinks
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-status-row">
+          <p class="muted" id="menuCount">
+            Loading dishes...
+          </p>
+
+          <button
+            class="cart-button"
+            id="cartButton"
+            type="button"
+          >
+            <span>🛒</span>
+            Cart
+            <strong id="cartCount">0</strong>
+          </button>
+        </div>
+
+        <!-- Menu Cards -->
+        <div class="full-menu-grid" id="menuGrid">
+          <div class="menu-loading-card"></div>
+          <div class="menu-loading-card"></div>
+          <div class="menu-loading-card"></div>
+          <div class="menu-loading-card"></div>
+        </div>
+
+        <div class="empty-menu" id="emptyMenu" hidden>
+          <div class="empty-menu-icon">🍽️</div>
+          <h2>No dishes found</h2>
+          <p class="muted">
+            Try another search term or choose a different category.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Panel -->
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div class="cart-panel-header">
+      <div>
+        <span class="eyebrow">Your order</span>
+        <h2>Shopping cart</h2>
+      </div>
+
+      <button
+        class="modal-close"
+        id="closeCart"
+        type="button"
+        aria-label="Close shopping cart"
+      >
+        &times;
+      </button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <div class="empty-menu-icon">🛒</div>
+        <p>Your cart is empty.</p>
+        <span class="muted">
+          Add something delicious from the menu.
+        </span>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+
+      <button
+        class="btn btn-primary checkout-button"
+        id="checkoutButton"
+        type="button"
+        disabled
+      >
+        Continue to checkout
+      </button>
+    </div>
+  </aside>
+
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  <!-- Toast -->
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script src="/static/js/menu.js"></script>
+</body>
+</html>
